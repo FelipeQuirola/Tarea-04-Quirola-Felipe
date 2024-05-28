@@ -1,0 +1,39 @@
+# Primer intervalo: [-1.5, 2.5]
+r, i = bisection(
+    a = -1.5, 
+    b = 2.5,
+    equation = lambda x: (x + 3) * (x + 1)**2 * x * (x - 1)**3 * (x - 3), 
+    tol = 10**(-3), 
+    N = 20
+)
+print(f'La bisección dio como resultado la raíz {r} en {i} iteraciones')
+
+# Segundo intervalo: [-0.5, 2.4]
+r, i = bisection(
+    a = -0.5, 
+    b = 2.4,
+    equation = lambda x: (x + 3) * (x + 1)**2 * x * (x - 1)**3 * (x - 3), 
+    tol = 10**(-3), 
+    N = 20
+)
+print(f'La bisección dio como resultado la raíz {r} en {i} iteraciones')
+
+# Tercer intervalo: [-0.5, 3]
+r, i = bisection(
+    a = -0.5, 
+    b = 3,
+    equation = lambda x: (x + 3) * (x + 1)**2 * x * (x - 1)**3 * (x - 3), 
+    tol = 10**(-3), 
+    N = 20
+)
+print(f'La bisección dio como resultado la raíz {r} en {i} iteraciones')
+
+# Cuarto intervalo: [-3, -0.5]
+r, i = bisection(
+    a = -3, 
+    b = -0.5,
+    equation = lambda x: (x + 3) * (x + 1)**2 * x * (x - 1)**3 * (x - 3), 
+    tol = 10**(-3), 
+    N = 20
+)
+print(f'La bisección dio como resultado la raíz {r} en {i} iteraciones')
