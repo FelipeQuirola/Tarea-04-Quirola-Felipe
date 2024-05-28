@@ -1,0 +1,16 @@
+import numpy as np
+from scipy.optimize import fsolve
+
+s0 = 300
+m = 0.25
+g = 9.81
+k = 0.1
+
+def height_equation(t):
+    return s0 - (m * g / k) * t + (m**2 * g / k**2) * (1 - np.exp(-k * t / m))
+
+initial_guess = 10
+t_solution = fsolve(height_equation, initial_guess)
+t_solution = t_solution[0]
+
+print(f"El objeto golpea el piso en aproximadamente {t_solution:.2f} segundos.")
