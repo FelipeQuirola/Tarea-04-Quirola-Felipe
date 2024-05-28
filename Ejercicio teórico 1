@@ -1,0 +1,22 @@
+def f(x):
+    return x**3 - x - 1
+
+def bisection_method(a, b, tol):
+    n_iter = 0
+    while (b - a) / 2 > tol:
+        c = (a + b) / 2
+        if f(c) == 0:
+            break
+        elif f(a) * f(c) < 0:
+            b = c
+        else:
+            a = c
+        n_iter += 1
+    return (a + b) / 2, n_iter
+
+a, b = 1, 2
+tol = 1e-4
+
+root, iterations = bisection_method(a, b, tol)
+print(f"La aproximación de la raíz es: {root}")
+print(f"Número de iteraciones: {iterations}")
