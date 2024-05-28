@@ -1,0 +1,41 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+from typing import Callable
+
+# Parte a
+# Gráfica de y = x^2 - 1
+X = np.linspace(-10, 10, 100)
+Y = [(lambda x: x**2 - 1)(x) for x in X]
+plt.plot(X, Y)
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Gráfica de la ecuación $y = x^2 - 1$')
+ax = plt.gca()
+ax.set_ylim([-2.5, 22.5])
+ax.set_xlim([-10, 10])
+plt.grid(True)
+plt.show()
+
+# Gráfica de y = e^(1 - x^2)
+Y = [(lambda x: math.exp(1 - x**2))(x) for x in X]
+plt.plot(X, Y)
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Gráfica de la ecuación $y = e^{1 - x^2}$')
+ax = plt.gca()
+ax.set_ylim([-2.5, 5])
+ax.set_xlim([-10, 10])
+plt.grid(True)
+plt.show()
+
+# Parte b
+# Encontrar la raíz de la función f(x) = x^2 - e^(1 - x^2) - 1 en el intervalo [-2, 0]
+r, i = bisection(
+    a = -2, 
+    b = 0,
+    equation = lambda x: x**2 - math.exp(1 - x**2) - 1, 
+    tol = 10**(-3), 
+    N = 20
+)
+print(f'La bisección dio como resultado la raíz {r} en {i} iteraciones')
