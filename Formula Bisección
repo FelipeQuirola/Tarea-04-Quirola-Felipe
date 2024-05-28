@@ -1,0 +1,20 @@
+from typing import Callable
+
+def bisection(
+    a: float, b: float, *, equation: Callable[[float], float], tol: float, N: int
+) -> tuple[float, int] | None:
+    i = 1
+    assert a < b, "a not lower than b, the interval is not valid."
+    assert (
+        equation(a) * equation(b) < 0
+    ), "The function does not change sign over the interval."
+    Fa = equation(a)
+    p = a
+    for i in range(N):
+        p = a + (b - a) / 2
+        FP = equation(p)
+        if FP == 0 or (b - a) / 2 < tol:
+            return p, i
+        if sign(Fa) * sign(FP) > 0:
+            a = p
+    return None
