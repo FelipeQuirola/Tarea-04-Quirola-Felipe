@@ -1,0 +1,28 @@
+import math
+
+L = 10  
+r = 1   
+V_target = 12.4  
+precision = 0.01 
+
+def calcular_volumen(h, L, r):
+    term1 = 0.5 * math.pi * r**2
+    term2 = r**2 * math.asin(h / r)
+    term3 = h * math.sqrt(r**2 - h**2)
+    V = L * (term1 - term2 - term3)
+    return V
+
+def encontrar_h(L, r, V_target, precision):
+    low = 0
+    high = r
+    while high - low > precision:
+        mid = (low + high) / 2
+        V_mid = calcular_volumen(mid, L, r)
+        if V_mid < V_target:
+            low = mid
+        else:
+            high = mid
+    return (low + high) / 2
+
+h = encontrar_h(L, r, V_target, precision)
+print(f"La profundidad del agua en el abrevadero es aproximadamente {h:.2f} cm.")
