@@ -1,0 +1,8 @@
+r1, i = bisection(
+    a = 0, 
+    b = 1,
+    equation = lambda x: x**3 - 7*x**2 + 14*x - 6, 
+    tol = 10**(-2), 
+    N = 20
+)
+print(f'La bisección dio como resultado la raíz {r1} en {i} iteraciones')
